@@ -33,7 +33,7 @@ Los algoritmos de generación simple son los más fáciles de elaborar pero tien
 
 El diseño de solución más común para un URL shortener tiene el siguiente diagrama
 
-![plot](./docs/img/generic-diagram.png)
+![generic url shortener diagram](./img/generic-diagram.png)
 
 - Una **interfaz web** que permite al usuario interactuar con el servicio
 - **API** que al menos debe tener la funcionalidad de acortar una URL y poder redirigir a la url original cuando se ingresa la URL acortada.
