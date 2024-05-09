@@ -28,7 +28,6 @@ Los algoritmos de corte se podrían clasificar en 3 tipos:
 
 Los algoritmos de generación simple son los más fáciles de elaborar pero tienen la desventaja de tener la mayor probabilidad de generar una clave repetida. Por el contrario, los algoritmos basado en funciones biyectivas son los más seguros en terminos de que es infactible que genere una clave duplicada, sin embargo, solo existe 1 combinación posible para cada url, de modo que el algoritmo en si mismo no es capáz de cambiar y actualizar una clave. En base a lo anterior, los algoritmos de Hash codificado son los más utilizados cuando se crean este tipo de soluciones.
 
-
 ## Arquitectura
 
 El diseño de solución más común para un URL shortener tiene el siguiente diagrama
