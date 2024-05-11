@@ -1,6 +1,6 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "cloud/prometheus/Dockerfile"
+dockerfilePath = "./cloud/prometheus/Dockerfile"
 
 [deploy]
 numReplicas = 1
