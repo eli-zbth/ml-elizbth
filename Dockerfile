@@ -11,6 +11,6 @@ COPY . /app
 RUN go mod download
 
 
-RUN go build -o /app
+RUN go build -o /build-app
 
-CMD [ "/app" ]
+CMD [ "/build-app" ]
