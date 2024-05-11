@@ -1,7 +1,7 @@
 FROM prom/prometheus
 
 
-COPY prometheus.yaml /etc/prometheus/prometheus.yaml
+COPY prometheus.yml /etc/prometheus/prometheus.yml
 
 
 EXPOSE 9090
@@ -15,4 +15,4 @@ ENTRYPOINT [ "prometheus", \
              "--web.console.templates=/usr/share/prometheus/consoles", \
              "--web.external-url=http://localhost:9090", \
              "--log.level=info", \
-             "--log.format=logger:stderr" ] 
+             "--log.format=json" ] 
