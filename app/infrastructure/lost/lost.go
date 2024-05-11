@@ -1,7 +1,7 @@
 package megaLost
 
 import (
-	"urlShortenerApi/app/domain/repository"
+	"ml-elizabeth/app/domain/repository"
 )
 
 type asdlost struct {

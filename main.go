@@ -1,7 +1,7 @@
 package main
 
 import (
-	"urlShortenerApi/app/application"
+	"ml-elizabeth/app/application"
 )
 
 func main() {

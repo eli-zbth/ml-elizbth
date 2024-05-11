@@ -1,10 +1,10 @@
 package manage
 
 import (
-	"urlShortenerApi/app/domain/models/request"
-	"urlShortenerApi/app/domain/models/response"
-	"urlShortenerApi/app/domain/repository"
-	"urlShortenerApi/app/shared/utils/logger"
+	"ml-elizabeth/app/domain/models/request"
+	"ml-elizabeth/app/domain/models/response"
+	"ml-elizabeth/app/domain/repository"
+	"ml-elizabeth/app/shared/utils/logger"
 )
 
 type ManageUseCase interface {

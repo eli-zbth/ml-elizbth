@@ -3,25 +3,22 @@ package application
 import (
 	"context"
 	"fmt"
+	"ml-elizabeth/app/infrastructure/http/rest/handlers/health"
+	manageRouter "ml-elizabeth/app/infrastructure/http/rest/handlers/manage"
+	megaLost "ml-elizabeth/app/infrastructure/lost"
+	"ml-elizabeth/app/shared/utils/logger"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
-	"urlShortenerApi/app/infrastructure/http/rest/handlers/health"
-	manageRouter "urlShortenerApi/app/infrastructure/http/rest/handlers/manage"
-	megaLost "urlShortenerApi/app/infrastructure/lost"
-	"urlShortenerApi/app/shared/utils/logger"
 
-	"urlShortenerApi/app/usecase/manage"
+	"ml-elizabeth/app/usecase/manage"
 
-	// "urlShortenerApi/usecase/manage"
 	echoPrometheus "github.com/globocom/echo-prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
-
-	_ "urlShortenerApi/docs/swagger"
 
 	log "github.com/sirupsen/logrus"
 )

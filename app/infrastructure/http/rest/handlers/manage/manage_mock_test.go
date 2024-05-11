@@ -1,8 +1,8 @@
 package manage
 
 import (
-	"urlShortenerApi/app/domain/models/request"
-	"urlShortenerApi/app/domain/models/response"
+	"ml-elizabeth/app/domain/models/request"
+	"ml-elizabeth/app/domain/models/response"
 
 	"github.com/stretchr/testify/mock"
 )

@@ -9,3 +9,6 @@ Hola!, mi nombre es Elizabeth Carreño y en este repositorio encontrarás mi pro
 - Información sobre el [dimensionamiento de la plataforma](./docs/capacity-planning.md)
 
 - Arquitectura propuesta y su explicación [arquitectura](./docs/architecture.md)
+
+
+docker run -d --name prometheus -p 9090:9090 -p 10087:10087 -v  /Users/e0c02oi/Documents/personal/ml-elizbth/prometheus.yaml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
