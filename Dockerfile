@@ -20,8 +20,7 @@ RUN  --mount=type=bind,target=. \
 FROM alpine:latest AS final
 
 
-RUN --mount=type=cache,target=/var/cache/apk \
-    apk --update add \
+RUN apk --update add \
         ca-certificates \
         tzdata \
         && \
