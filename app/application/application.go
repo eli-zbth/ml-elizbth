@@ -62,7 +62,7 @@ func StartApp() {
 func startServer(e *echo.Echo, quit chan os.Signal) {
 	log.Println("Starting server")
 
-	port := os.Getenv("ENV_PORT")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
