@@ -1,11 +1,13 @@
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
-rule_files:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'prometheus-monitor'
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-  - targets: ['localhost:9090']
-  - job_name: 'go_service'
+      - targets: 
+          - localhost:9090   # your server ip
+  - job_name: 'node-exporter'             
     static_configs:
-      - targets: ['mz-elizabeth:3030']
+      - targets: 
+          - mz-elizabeth:3030   # your server ip
