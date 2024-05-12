@@ -5,7 +5,7 @@ rule_files:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-    - targets: ['127.0.0.1:9090']
+  - targets: ['localhost:9090']
   - job_name: 'go_service'
     static_configs:
       - targets: ['mz-elizabeth:3030']
