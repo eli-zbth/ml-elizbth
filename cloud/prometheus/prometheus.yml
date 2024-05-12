@@ -7,6 +7,7 @@ scrape_configs:
     static_configs:
       - targets: 
           - localhost:9090
-  - job_name: 'go-app'             
+  - job_name: 'urlShortenerAPI'             
     static_configs:
-      - targets: ['mz-elizabeth:8080']
+      - targets: 
+          - ml-elizbth:8080
