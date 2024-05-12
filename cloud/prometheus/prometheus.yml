@@ -7,7 +7,7 @@ scrape_configs:
     static_configs:
       - targets: 
           - localhost:9090   # your server ip
-  - job_name: 'node-exporter'             
+  - job_name: 'go-app'             
     static_configs:
       - targets: 
           - mz-elizabeth:3030   # your server ip
