@@ -1,5 +1,6 @@
 package response
 
 type CreateUrlResponse struct {
-	Test string
+	ShortUrl string  `json:"short_url" `
 }
+
