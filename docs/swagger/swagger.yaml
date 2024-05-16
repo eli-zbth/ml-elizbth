@@ -1,0 +1,260 @@
+definitions:
+  echo.HTTPError:
+    properties:
+      message: {}
+    type: object
+  request.CreateUrlRequest:
+    properties:
+      custom_url:
+        minLength: 3
+        type: string
+      url:
+        type: string
+    required:
+    - url
+    type: object
+  request.EditRedirectURLRequest:
+    properties:
+      redirect_url:
+        type: string
+      short_url:
+        type: string
+    required:
+    - redirect_url
+    - short_url
+    type: object
+  request.EditShortUrlRequest:
+    properties:
+      new_value:
+        minLength: 3
+        type: string
+      short_url:
+        type: string
+    required:
+    - new_value
+    - short_url
+    type: object
+  request.EditUrlStatusRequest:
+    properties:
+      is_active:
+        type: boolean
+      short_url:
+        type: string
+    required:
+    - is_active
+    - short_url
+    type: object
+  request.RedirectRequest:
+    properties:
+      id:
+        minLength: 3
+        type: string
+    required:
+    - id
+    type: object
+  response.CreateUrlResponse:
+    properties:
+      short_url:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Get shorturl and redirect to web url
+      parameters:
+      - description: Id
+        in: body
+        name: path
+        required: true
+        schema:
+          $ref: '#/definitions/request.RedirectRequest'
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: Url status updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+      summary: Redirect
+      tags:
+      - Redirect
+  /create:
+    post:
+      consumes:
+      - application/json
+      description: Take the Url and assing a short id, then save the data in database
+        and cache
+      parameters:
+      - description: url CustomId
+        in: body
+        name: bodyRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.CreateUrlRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.CreateUrlResponse'
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+      summary: Create short Url
+      tags:
+      - Create
+  /edit/redirect_url:
+    post:
+      consumes:
+      - application/json
+      description: Change web url assigned to a shorturl
+      parameters:
+      - description: shortUrl RedirectUrl
+        in: body
+        name: bodyRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.EditRedirectURLRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: url updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+      summary: Edit Redirect url
+      tags:
+      - Edit
+  /edit/short_url:
+    post:
+      consumes:
+      - application/json
+      description: Change id for shorturl and can customizate it
+      parameters:
+      - description: shortUrl newUrl
+        in: body
+        name: bodyRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.EditShortUrlRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: url updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+      summary: Edit Short url
+      tags:
+      - Edit
+  /edit/url_status:
+    post:
+      consumes:
+      - application/json
+      description: Active/deactive short url
+      parameters:
+      - description: shortUrl IsActive
+        in: body
+        name: bodyRequest
+        required: true
+        schema:
+          $ref: '#/definitions/request.EditUrlStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/echo.HTTPError'
+            - properties:
+                message:
+                  type: string
+              type: object
+      summary: Edit url status
+      tags:
+      - Edit
+swagger: "2.0"
