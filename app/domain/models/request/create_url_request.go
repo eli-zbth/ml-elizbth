@@ -1,5 +1,6 @@
 package request
 
 type CreateUrlRequest struct {
-	Test string
+	Url string `json:"url" validate:"required,url"`
+	CustomId string `json:"custom_url" validate:"omitempty,gte=3"`
 }
